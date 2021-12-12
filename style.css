@@ -4,11 +4,12 @@
 }
 
 .container {
-    width: 500px;
+    margin-top: 20px;
+    width: 450px;
     height: 600px;
     display: grid;
     grid-template-columns: repeat(4, 100px);
-    gap: 15px;
+    gap: 5px;
     justify-content: center;
     background-color: rgb(214, 125, 214);
     margin-right: auto;
@@ -17,17 +18,24 @@
     border-radius: 15px;
 }
 
-.container > .btn {
+.container > button {
     height: 70px;
-    border-radius: 30px;
+    border-radius: 15px;
     border: 3px solid rgb(116, 108, 113);
+    font-size: 25px;
+    background-color: rgba(228, 225, 220, 0.705);
 }
 
 .display {
+    margin-top: 15px;
+    height: 50px;
+    background-color: rgba(228, 225, 220, 0.705);
     grid-column-start: 1;
     grid-column-end: -1;
-    height: 40px;
-    text-align: end;  
+    text-align: end;
+    padding-top: 15px;
+    font-size: 40px;
+    border-radius: 3px;
 }
 
 #C {
@@ -41,3 +49,7 @@
     grid-column-start: 3;
     grid-column-end: 5;
 } 
+
+.btn:hover {
+    background-color: rgba(175, 175, 175, 0.616);
+}
