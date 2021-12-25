@@ -1,13 +1,19 @@
 const display = document.querySelector(".display");
 const btns = document.querySelectorAll(".btn");
-const equals = document.getElementById("#equals");
 
 Array.from(btns).forEach(function(btn) {
     btn.addEventListener("click", function() {
-        display.innerHTML += this.id;
+        display.innerHTML += btn.id;
     });
 });
 
+document.getElementById("C").addEventListener("click", function() {
+    display.innerHTML = "";
+})
+
+document.getElementById("delete").addEventListener("click", function() {
+    display.innerHTML = display.innerHTML.slice(0, -1);
+})
 
 
 //Function for different operators.
@@ -26,6 +32,8 @@ function multiply(a, b) {
 function divide(a, b) {
     return a / b;
 }
+
+
 
 //Function to decide with operator to run depending on user choice.
 function operate(operator, a, b) {
