@@ -26,7 +26,7 @@
     background-color: rgba(228, 225, 220, 0.705);
 }
 
-.display {
+.displayScreen {
     margin-top: 15px;
     height: 50px;
     background-color: rgba(228, 225, 220, 0.705);
@@ -37,6 +37,7 @@
     font-size: 40px;
     border-radius: 3px;
 }
+
 
 #C {
     grid-row-start: 2;
