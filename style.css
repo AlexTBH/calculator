@@ -28,16 +28,21 @@
 
 .displayScreen {
     margin-top: 15px;
-    height: 50px;
+    display: flex;
+    flex-direction: column-reverse;
+    height: 60px;
     background-color: rgba(228, 225, 220, 0.705);
     grid-column-start: 1;
     grid-column-end: -1;
     text-align: end;
-    padding-top: 15px;
-    font-size: 40px;
+    padding-top: 12px;
+    font-size: 25px;
     border-radius: 3px;
 }
 
+.display2 {
+
+}
 
 #C {
     grid-row-start: 2;
