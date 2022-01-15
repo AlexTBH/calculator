@@ -34,14 +34,10 @@
     background-color: rgba(228, 225, 220, 0.705);
     grid-column-start: 1;
     grid-column-end: -1;
-    text-align: end;
     padding-top: 12px;
     font-size: 25px;
+    text-align: end;
     border-radius: 3px;
-}
-
-.display2 {
-
 }
 
 #C {
