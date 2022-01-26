@@ -14,12 +14,14 @@ Array.from(numberButtons).forEach(function(numbers) {
     })
 })
 
-
-
 Array.from(operators).forEach(function(operators) {
     operators.addEventListener("click", function() {
-        if (sum != "") {
-            return;
+        if (sum != "" && valueInput != "" && valueInput2 != "") {
+            totalSum();
+        } else if (sum != "") {
+            return
+        } else if (valueInput === "") {
+            return
         }
 
         sum = operators.id;
@@ -31,22 +33,32 @@ Array.from(operators).forEach(function(operators) {
 })
 
 document.getElementById("equals").addEventListener("click", function() {
+    if (valueInput2 === "") {
+        return
+    } else {
+        totalSum()
+    }
+})
+
+function totalSum() {
     displayScreen1.innerHTML = "";
     displayScreen2.innerHTML = total = calculate(sum, parseInt(valueInput2), parseInt(valueInput));
     valueInput = displayScreen2.innerHTML;
-})
+    valueInput2 = "";
+    sum = "";
+}
 
 document.getElementById("C").addEventListener("click", function() {
     displayScreen1.innerHTML = "";
     displayScreen2.innerHTML = "";
     valueInput = "";
     valueInput2 = "";
+    sum = "";
 })
 
 document.getElementById("delete").addEventListener("click", function() {
     displayScreen1.innerHTML = displayScreen1.innerHTML.slice(0, -1);
 })
-
 
 //Function to decide with operator to run depending on user choice.
 function calculate(op, a, b) {
