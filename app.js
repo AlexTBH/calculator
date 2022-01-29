@@ -5,26 +5,26 @@ const displayScreen2 = document.querySelector(".display2");
 
 let valueInput = "";
 let valueInput2 = "";
-let sum = "";
+let operatorInput = "";
 
 Array.from(numberButtons).forEach(function(numbers) {
     numbers.addEventListener("click", function() {
-        displayScreen1.innerHTML += numbers.id;
-        valueInput += numbers.id;
+        displayScreen1.innerHTML += numbers.textContent;
+        valueInput += numbers.textContent;
     })
 })
 
 Array.from(operators).forEach(function(operators) {
     operators.addEventListener("click", function() {
-        if (sum != "" && valueInput != "" && valueInput2 != "") {
+        if (operatorInput != "" && valueInput != "" && valueInput2 != "") {
             totalSum();
-        } else if (sum != "") {
+        } else if (operatorInput != "") {
             return
         } else if (valueInput === "") {
             return
         }
 
-        sum = operators.id;
+        operatorInput = operators.id;
         valueInput2 = valueInput;
         valueInput = "";
         displayScreen1.innerHTML = operators.textContent;
@@ -42,10 +42,15 @@ document.getElementById("equals").addEventListener("click", function() {
 
 function totalSum() {
     displayScreen1.innerHTML = "";
-    displayScreen2.innerHTML = total = calculate(sum, parseInt(valueInput2), parseInt(valueInput));
+    displayScreen2.innerHTML  = calculate(operatorInput, roundNumber(valueInput2), roundNumber(valueInput));
     valueInput = displayScreen2.innerHTML;
     valueInput2 = "";
-    sum = "";
+    operatorInput = "";
+}
+
+function roundNumber(number) {
+    let valToInt = Number(number);
+    return (Math.round(valToInt * 100)/100);
 }
 
 document.getElementById("C").addEventListener("click", function() {
@@ -53,10 +58,24 @@ document.getElementById("C").addEventListener("click", function() {
     displayScreen2.innerHTML = "";
     valueInput = "";
     valueInput2 = "";
-    sum = "";
+    operatorInput = "";
 })
 
 document.getElementById("delete").addEventListener("click", function() {
+    if (displayScreen1.innerHTML === "+") {
+        return
+    }
+    if (displayScreen1.innerHTML === "-") {
+        return
+    }
+    if (displayScreen1.innerHTML === "*") {
+        return
+    }
+    if (displayScreen1.innerHTML === "/") {
+        return
+    }
+
+    valueInput = valueInput.slice(0, -1);
     displayScreen1.innerHTML = displayScreen1.innerHTML.slice(0, -1);
 })
 
